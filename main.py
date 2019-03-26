@@ -54,8 +54,15 @@ def game():
     global cards
     clear()
     print('Welcome to Celebrity Dogs!')
-    if options(['Play', 'Exit'], 'What do you want to do?') == 1: # let the player break the game loop
+    choice = options(['Play', 'Help', 'Exit'], 'What do you want to do?')
+    if choice == 2: # let the player break the game loop
         return False
+    elif choice == 1:
+        clear()
+        print('\tHelp\n')
+        print(classes.HELP_MSG)
+        input('\n\tPress enter to return to the main menu...')
+        return True
     print('Okay! How many cards shall we play with?')
     n_cards = int(evaluate(card_check, 'Enter an even number between 4 and 30.'))
     shuffle(cards)           # shuffle cards
